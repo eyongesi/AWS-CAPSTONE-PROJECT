@@ -1,0 +1,21 @@
+#!/bin/bash
+apt-get update -y
+apt-get install git -y
+apt-get install python3 -y
+cd /home/ubuntu/
+TOKEN="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"
+git clone https://$TOKEN@github.com/eyongesi/AWS-CAPSTONE-PROJECT.git
+cd /home/ubuntu/AWS-CAPSTONE-PROJECT.git
+apt install python3-pip -y
+apt-get install python3.7-dev default-libmysqlclient-dev -y
+pip3 install -r requirements.txt
+cd /home/ubuntu/AWS-CAPSTONE-PROJECT.git/src
+python3 manage.py collectstatic --noinput
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver 0.0.0.0:80
+
+
+TOKEN: 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
+
+https://github.com/eyongesi/AWS-CAPSTONE-PROJECT.git
